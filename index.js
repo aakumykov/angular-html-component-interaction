@@ -22,11 +22,11 @@ function initializeEditor(){
 			eventType: undefined,
 		},
 		startWatch: function(e){
-			console.log('mouseDispatsher.startWatch()');
+			console.log('mouseDispatsher.startWatch(), '+e.target.id);
 
 		},
 		endWatch: function(e){
-			console.log('mouseDispatsher.endWatch()');
+			console.log('mouseDispatsher.endWatch(), '+e.target.id);
 		}
 	}
 
@@ -42,7 +42,12 @@ function initializeEditor(){
 		console.log('---------------- event info ----------------')
 	}
 
-	editor.on('click', function(e){
-		editor.showEventInfo(e);
+	editor.on('mousedown', function(e){
+		//editor.showEventInfo(e);
+		editor.mouseDispatsher.startWatch(e);
+	});
+	editor.on('mouseup', function(e){
+		//editor.showEventInfo(e);
+		editor.mouseDispatsher.endWatch(e);
 	});
 }
