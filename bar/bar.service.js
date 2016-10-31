@@ -2,8 +2,6 @@
 
 angular.module('Bar').
 factory('dispatcher', function(){
-	var self = this;
-	
 	this.name = 'Диспетчер';
 	this.getName = function(){ return self.name; }
 
@@ -20,11 +18,17 @@ factory('dispatcher', function(){
 			x: undefined,
 			y: undefined,
 		},
-		path: [],
+		target: undefined,
+		start: undefined,
+		end: undefined,
+		path: []
 	}
 
+
+	var self = this;
+
 	this.mousedown = function(ev){
-		console.log('dispatcher.mousedown()');
+		console.log('dispatcher.mousedown('+self.name+')');
 		self.pressed = true;
 		self.info.start.target = ev.target;
 		self.info.start.x = ev.clientX;
@@ -43,6 +47,28 @@ factory('dispatcher', function(){
 		self.info.end.target = ev.target;
 		self.info.end.x = ev.clientX;
 		self.info.end.y = ev.clientY;
+
+		self.processInfo();
+	}
+	this.processInfo = function(){
+		console.debug('dispatcher.processInfo()');
+
+		var target1 = self.info.start.target;
+		var target2 = self.info.end.target;
+
+		if (target1===target2) {
+			self.info.target = target1;
+			
+			self.info.start = {
+				x: self.info.start.x,
+				y: self.info.start.y,
+			}
+			
+			self.info.end = {
+				x: self.info.end.x,
+				y: self.info.end.y,
+			}
+		}
 	}
 
 	return this;
