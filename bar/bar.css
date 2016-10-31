@@ -34,8 +34,11 @@
 	position: relative;
 	width: 150px;
 	height: 100px;
-	border: darkslateblue 1px solid;
-	border-radius: 6px;
-	background-color: plum;
+	border: midnightblue 1px solid;
+	border-radius: 4px;
+	background-color: skyblue;
+	color: midnightblue;
+	font: bold 14px sans-serif;
+	text-align: center;
 }
 
