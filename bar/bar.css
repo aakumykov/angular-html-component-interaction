@@ -1,0 +1,41 @@
+#editor {
+	width: 84%;
+	height: 250px;
+	margin: 1% 1% auto 1%;
+	border: 1px dotted grey;
+	background-color: ghostwhite;
+	padding: 10px;
+	padding-left: 60px;
+}
+
+#toolbar {
+	position: relative;
+	float: left;
+	margin-left: -50px;
+	width:40px;
+	height: 90%;
+	border: brown 1px solid;
+	border-radius: 6px;
+	background-color: burlywood;
+}
+
+#workspace {
+	position: relative;
+	/*margin: 10px;
+	margin-left: 60px;*/
+	width: 100%;
+	height: 100%;
+	border: grey 1px solid;
+	border-radius: 6px;
+	background-color: white;
+}
+
+.bar {
+	position: relative;
+	width: 150px;
+	height: 100px;
+	border: darkslateblue 1px solid;
+	border-radius: 6px;
+	background-color: plum;
+}
+

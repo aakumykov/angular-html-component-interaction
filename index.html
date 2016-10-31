@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html strict-di>
 	<head>
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; media-src *; script-src 'self';">
+		<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; media-src *; script-src 'self';"> -->
 		<meta charset='UTF-8'/>
-		<title>{{ctrl.title}}</title>
-		<script type='text/javascript' src='lib/angular-1.5.8.js'></script>
-		
+		<title>HTML и компонент...</title>
 		<link rel='stylesheet' href='index.css'>
-		<script type='text/javascript' src='index.js'></script>
-		
-		<script type='text/javascript' src='app/module.js'></script>
-		<!--
 		<link rel='stylesheet' href='bar/bar.css'>
+		<script type='text/javascript' src='lib/angular-1.5.8.js'></script>
+		<script type='text/javascript' src='app/app.module.js'></script>
 		<script type='text/javascript' src='bar/bar.module.js'></script>
-		<script type='text/javascript' src='bar/bar.component.js'></script>-->
+		<script type='text/javascript' src='bar/bar.component.js'></script>
+		<script type='text/javascript' src='index.js'></script>
 	</head>
 	<body>
+		<div id='editor'>
+			<div id='toolbar'></div>
+			<div id='workspace'></div>
+		</div>
 	</body>
 </html>
