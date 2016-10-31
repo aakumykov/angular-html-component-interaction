@@ -2,7 +2,7 @@
 
 function BarController(dispatcher){
 	//this.name = 'Прямоугольник';
-	this.name = 'Прямоугольник';
+	this.name = dispatcher.getName();
 }
 
 angular.module('Bar',[]).
