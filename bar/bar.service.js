@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('App').
-factory('barService', function(){
-	this.name = 'Прямоугольная служба.';
+angular.module('Bar').
+factory('dispatcher', function(){
+	this.name = 'Диспетчер';
 	var self = this;
 	this.getName = function(){ return self.name; }
+	return this;
 });
