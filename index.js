@@ -15,18 +15,47 @@ function initializeEditor(){
 	
 	var editor = angular.element('#editor');
 
+	var self = this;
+
 	editor.mouseDispatsher = {
 		status: {
-			startTarget: undefined,
-			finishTarge: undefined,
-			eventType: undefined,
+			start: {
+				target: undefined,
+				coords: {
+					x: undefined,
+					y: undefined,
+				}
+			},
+			end: {
+				target: undefined,
+				coords: {
+					x: undefined,
+					y: undefined,
+				}
+			},
 		},
 		startWatch: function(e){
 			console.log('mouseDispatsher.startWatch(), '+e.target.id);
-
 		},
 		endWatch: function(e){
 			console.log('mouseDispatsher.endWatch(), '+e.target.id);
+		},
+		updateStatus: function(mode, ev) {
+			switch (mode) {
+				case 'start':
+					var storage = editor.mouseDispatsher.status.start;
+					break;
+				case 'end':
+					var storage = editor.mouseDispatsher.status.end;
+					break;
+				default:
+					console.error("неизвестный режим '"+mode+"'");
+					return false;
+			}
+
+			storage.target = ev.target;
+			storage.coords.x = ev.pageX;
+			storage.coords.y = ev.pageY;
 		}
 	}
 
@@ -43,11 +72,11 @@ function initializeEditor(){
 	}
 
 	editor.on('mousedown', function(e){
-		//editor.showEventInfo(e);
-		editor.mouseDispatsher.startWatch(e);
+		editor.mouseDispatsher.updateStatus('start',e);
+		//console.log('editor: '+editor.mouseDispatsher);
 	});
 	editor.on('mouseup', function(e){
-		//editor.showEventInfo(e);
-		editor.mouseDispatsher.endWatch(e);
+		editor.mouseDispatsher.updateStatus('end',e);
+		//console.log('editor: '+editor.mouseDispatsher);
 	});
 }
